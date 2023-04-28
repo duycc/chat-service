@@ -12,17 +12,17 @@ def get_dataset_path(by_word=True, train=True):
 
 
 def train():
-    train_data_path = get_dataset_path(by_word=False, train=True)
+    train_data_path = get_dataset_path(by_word=True, train=True)
     model = fasttext.train_supervised(train_data_path, dim=100, epoch=20, wordNgrams=2)
     # model.save_model("classify/models/classify_by_word_100_20_1.model")  # 0.994214320038443
-    # model.save_model("classify/models/classify_by_word_100_20_2.model")  # 0.9967996155694377
+    model.save_model("classify/models/classify_by_word_100_20_2.model")  # 0.9967996155694377
     # model.save_model("classify/models/classify_100_20_1.model")  # 0.9960127130887027
-    model.save_model("classify/models/classify_100_20_2.model")  # 0.9964846383511509
+    # model.save_model("classify/models/classify_100_20_2.model")  # 0.9964846383511509
 
 
 def evaluate():
-    test_data_path = get_dataset_path(by_word=False, train=False)
-    model = fasttext.load_model("classify/models/classify_100_20_2.model")
+    test_data_path = get_dataset_path(by_word=True, train=False)
+    model = fasttext.load_model("classify/models/classify_by_word_100_20_2.model")
 
     sentences = []
     labels = []
