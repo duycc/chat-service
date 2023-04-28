@@ -1,4 +1,6 @@
 from util import cut
+from corpus.classify import build_classify_corpus, split_classify_corpus
+from classify import train, evaluate
 
 
 def util_test():
@@ -6,5 +8,17 @@ def util_test():
     print(cut(sentence, by_word=False))
 
 
+def build_corpus_test():
+    # build_classify_corpus()
+    split_classify_corpus()
+
+
+def classify_test():
+    train()
+    evaluate()
+
+
 if __name__ == "__main__":
-    util_test()
+    # util_test()
+    # build_corpus_test()
+    classify_test()
